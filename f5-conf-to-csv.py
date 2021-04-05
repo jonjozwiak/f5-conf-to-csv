@@ -391,7 +391,7 @@ for idx, val in enumerate(lines):
         rule_name = val.removeprefix("ltm rule ").rstrip(" {")
         leading_spaces = len(val) - len(val.lstrip())
         end_idx = get_stanza_end(lines,idx,leading_spaces)
-        rule = lines[idx+1:end_idx]
+        rule = lines[idx:end_idx]
         rule_string = "\n".join(rule[1:])
         cur.execute("INSERT INTO Rules (Name, Rule) VALUES (?,?)", (rule_name,rule_string));
  
